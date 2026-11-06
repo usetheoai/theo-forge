@@ -10,5 +10,5 @@
 //	fmt.Println(e.Tmpl()) // "{{tasks.task-a.outputs.result}}"
 //
 //	cond := expr.E("inputs.parameters.env").Equals(expr.C("prod"))
-//	fmt.Println(cond.Eq()) // "{{=inputs.parameters.env == 'prod'}}"
+//	fmt.Println(cond.Render()) // "{{=inputs.parameters.env == 'prod'}}"
 package expr

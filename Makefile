@@ -9,11 +9,11 @@
 #   - .claude/rules/{testing,golang-conventions,error-handling}.md
 #
 # Tool versions (pin everything for reproducibility).
-GOLANGCI_LINT_VERSION   ?= v1.61.0
-GOVULNCHECK_VERSION     ?= latest
-OSV_SCANNER_VERSION     ?= latest
-NANCY_VERSION           ?= latest
-GO_TEST_COVERAGE_VERSION ?= latest
+GOLANGCI_LINT_VERSION   ?= v2.15.0
+GOVULNCHECK_VERSION     ?= v1.9.0
+OSV_SCANNER_VERSION     ?= v1.9.2
+NANCY_VERSION           ?= v1.2.0
+GO_TEST_COVERAGE_VERSION ?= v2.19.0
 
 # Default target prints help.
 .DEFAULT_GOAL := help
@@ -37,7 +37,7 @@ help: ## Print this help.
 # ---------------------------------------------------------------------------
 install-tools: ## Install all required dev tools into $GOPATH/bin.
 	@echo "==> installing golangci-lint $(GOLANGCI_LINT_VERSION)"
-	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/HEAD/install.sh | \
+	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/$(GOLANGCI_LINT_VERSION)/install.sh | \
 		sh -s -- -b $$(go env GOPATH)/bin $(GOLANGCI_LINT_VERSION)
 	@echo "==> installing govulncheck $(GOVULNCHECK_VERSION)"
 	@go install golang.org/x/vuln/cmd/govulncheck@$(GOVULNCHECK_VERSION)
