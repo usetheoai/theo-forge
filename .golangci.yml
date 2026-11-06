@@ -10,8 +10,7 @@
 #   - Zero suppression by default (max-issues-per-linter: 0, max-same-issues: 0).
 #   - All exclusions are EXPLICIT, named, and rationale-documented inline below.
 #
-# Pinned in CI to v1.61.0 today (T5.8). When migrating to v2.x runtime, run
-# `golangci-lint migrate` and re-test against this config.
+# Pinned to v2.15.0 in the Makefile and in release.yml; keep the two in step.
 
 version: "2"
 
@@ -259,4 +258,3 @@ output:
     text:
       print-linter-name: true
       print-issued-lines: true
-  sort-results: true

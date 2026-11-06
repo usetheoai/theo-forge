@@ -39,7 +39,7 @@ Define workflows as Go structs, get compile-time safety, and let Forge handle th
 go get github.com/usetheodev/theo-forge
 ```
 
-Requires **Go 1.25+**.
+Requires **Go 1.26.10+**.
 
 ## Quick Start
 

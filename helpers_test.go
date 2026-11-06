@@ -371,8 +371,8 @@ func TestExprTemplateFormat(t *testing.T) {
 	if e.Tmpl() != "{{inputs.parameters.msg}}" {
 		t.Errorf("Tmpl = %q", e.Tmpl())
 	}
-	if e.Eq() != "{{=inputs.parameters.msg}}" {
-		t.Errorf("Eq = %q", e.Eq())
+	if e.Render() != "{{=inputs.parameters.msg}}" {
+		t.Errorf("Render = %q", e.Render())
 	}
 }
 

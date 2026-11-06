@@ -2,7 +2,7 @@
 
 ## Build prerequisites
 
-- Go 1.25.0 or later (matches `go.mod`).
+- Go 1.26.10 or later (matches `go.mod`).
 - `make` (optional; commands below use `go` directly).
 
 ## Standard build

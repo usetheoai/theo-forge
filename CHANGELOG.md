@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Changed
+- The minimum Go version is now 1.26.10, up from 1.25.10. Go 1.25.14, the last 1.25 release, still carries 10 standard library vulnerabilities reachable from theo-forge, and their fixes only exist from 1.26.10. (#26)
+
 ## [0.7.0] - 2026-11-06
 
 ### Added

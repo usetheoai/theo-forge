@@ -1,10 +1,10 @@
 module github.com/usetheodev/theo-forge
 
-// govulncheck (QG-6, 2026-05-20) detected 18 stdlib CVEs in Go 1.25.0;
-// the highest fixed-in version observed across the report is 1.25.10
-// (net/http GO-2026-4918, net GO-2026-4971). Require 1.25.10 to close all
-// CVEs reachable through theo-forge's call graph.
-go 1.25.10
+// govulncheck (2026-11-06) reports 10 stdlib CVEs reachable from theo-forge's
+// call graph on Go 1.25.14, the last 1.25 release. None is fixed on the 1.25
+// line; the highest fixed-in version is 1.26.10 (crypto/x509 GO-2026-6809).
+// Require 1.26.10 to close them.
+go 1.26.10
 
 require sigs.k8s.io/yaml v1.6.0
 
