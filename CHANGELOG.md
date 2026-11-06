@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-11-06
+
 ### Added
 - `NewRetryOnFailure(limit, initial, factor, maxDuration)` factory in `parameter.go` — preconfigured RetryStrategy with OnFailure policy, exponential Backoff, and skip-OOM expression (`asInt(lastRetry.exitCode) != 137`). Eliminates duplicated retry-strategy boilerplate in build pipelines (forge-contributions-abc-plan T1.1 / ADR-001).
 - `ResourcesTiny()`, `ResourcesSmall()`, `ResourcesMedium()` factories in `types.go` — T-shirt-size `*ResourceRequirements` presets (50m/32Mi, 100m/128Mi, 500m/512Mi). Each call returns a freshly-allocated struct safe to mutate (forge-contributions-abc-plan T1.2 / ADR-002).
@@ -24,6 +26,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - CI gofmt gate (#T1.2).
 
 ### Changed
+
+- Abrir um PR não dispara mais esteira: o gatilho `pull_request` foi removido do único workflow que o declarava (`ci.yml`). CI passa a rodar **somente no merge** — push em `develop`/`main` — por decisão do dono (2026-08-12). A cobertura no merge não se perde: o mesmo workflow já disparava em `push`, que foi mantido intacto. Se este repositório tiver *required status checks* configurados no GitHub para PRs, eles precisam ser removidos lá, senão o PR fica travado esperando um check que nunca reporta.
+- License standardized to **Apache-2.0** (was MIT). Aligns all Theo open-core pillars under a single license — see root `CLAUDE.md` strategic review of 2026-05-14.
 - License standardized to **Apache-2.0** (was MIT). Aligns all usetheo open-core pillars under a single license — see root `CLAUDE.md` strategic review of 2026-05-14.
 - **BREAKING (behavior):** `expr.C` and string-interpolation methods (`Contains`, `Matches`, `StartsWith`, `EndsWith`, `Sprig.{Trim,Upper,Lower,Replace}`) now escape single quotes for safe Argo embedding. Callers that pre-escaped input must switch to `expr.RawC` to avoid double-escaping (#T2.2, SEC-002, EC-4).
 - `client.WorkflowsService.VerifySSL` now actually controls TLS verification on the HTTP transport (was a dead field). `MinVersion` fixed to TLS 1.2. Externally-set `HTTPClient` is honored without overwrite (#T2.4, SEC-004, code-p4-verifyssl-dead, EC-5).
