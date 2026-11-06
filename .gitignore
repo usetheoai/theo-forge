@@ -35,3 +35,4 @@ __pycache__/
 *.bak
 *.tmp
 .e2e/
+.claude/
